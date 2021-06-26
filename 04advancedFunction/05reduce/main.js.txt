@@ -1,0 +1,50 @@
+/*
+  Complete the functions below as detailed in the instructions.
+
+  When one of the function parameters refers to a `park`, assume it is an object of the following shape:
+  {
+    name: "Acadia",
+    areaInSquareKm: 198.6,
+    location: {
+      state: "Maine"
+    }
+  }
+*/
+
+function squareKmTotal(parks) {
+  let accumulator=0;
+  let result=parks.reduce((acc,park)=>acc+park.areaInSquareKm, accumulator);
+  //accumulator is the starting value
+  //acc is current value
+  //park current park
+  //what is being returned is what immediately after =>, in this csae acc+park.areainSqKm
+  return result;
+}
+
+function parkNameAndState(parks) {
+  let result=parks.reduce((acc,park)=>{
+    acc[park.name]=park.location.state;
+    //This would take acc, give it a park name, and set it equal to the park's state.
+    return acc;
+  }, {});
+  return result;
+  //The starting value is an empty object. Made in case by the empty curly brackets on 29
+  //acc would start as an empty object, it will reference what would be in the curly brak
+  
+}
+
+function parkByState(parks) {
+  let result = parks.reduce((acc, park) => {
+  if (acc[park.location.state] === undefined) {
+    //state key doesn't exist. Make the key and set the initial value
+    acc[park.location.state] = [park];
+  } else {
+    //state key was created earlier. Push this park to it
+    acc[park.location.state].push(park);
+  }
+  return acc;
+  }, {});
+  return result;
+}
+
+module.exports = { squareKmTotal, parkNameAndState, parkByState };

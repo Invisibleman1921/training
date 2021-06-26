@@ -1,0 +1,41 @@
+/*
+  Complete the functions below as detailed in the instructions.
+
+  When one of the function parameters refers to a `park`, assume it is an object of the following shape:
+  {
+    name: "Acadia",
+    areaInSquareKm: 198.6,
+    location: {
+      state: "Maine"
+    }
+  }
+*/
+
+function findParkByName(parks, name) {
+  let foundName=parks.find((park)=>park.name===name);
+  return foundName;
+}
+
+function allParksAboveCertainSize(parks, minSize) {
+  let everyPark=parks.every((park)=>park.areaInSquareKm>minSize);
+  return everyPark;
+}
+
+function getBigParkNames(parks, minSize) {
+  let filteredParks=parks.filter((park)=>park.areaInSquareKm>minSize);
+  let mappedParks=filteredParks.map((filteredPark)=>filteredPark.name);
+  return mappedParks;
+}
+
+function doesStateHaveOneBigPark(parks, minSize, state) {
+  let filteredParks=parks.filter((park)=>park.areaInSquareKm>=minSize);
+  const someParks=filteredParks.some((filteredPark)=>filteredPark.location.state===state);
+  return someParks;
+}
+
+module.exports = {
+  findParkByName,
+  allParksAboveCertainSize,
+  getBigParkNames,
+  doesStateHaveOneBigPark,
+};

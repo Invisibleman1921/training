@@ -1,0 +1,18 @@
+function createSalesProduct(product, salesTax) {
+  const result = {
+    ...product,
+    salesTax: 0.1,
+    priceInCents: product.priceInCents*(1+salesTax),
+  };
+  return result;
+}
+
+function joinSizes(productA, productB) {
+  const result = [...productA.availableSizes, ...productB.availableSizes];
+  return result;
+}
+
+module.exports = {
+  createSalesProduct,
+  joinSizes,
+};

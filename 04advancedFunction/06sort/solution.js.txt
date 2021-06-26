@@ -1,0 +1,36 @@
+function sortWords(words) {
+  // your solution here
+  return words.sort();
+}
+
+function sortNumbers(numbers) {
+  // your solution here
+  return numbers.sort((a,b) => a-b);
+}
+
+function largestFirst(numbers) {
+  // your solution here
+  return numbers.sort((a,b) => b-a);
+}
+
+function sortFlowersByZone(flowers) {
+  // your solution here
+  flowers.sort((flowerA,flowerB) =>
+    flowerA.zone > flowerB.zone ? 1:-1);
+  return flowers;
+}
+
+function sortByLength(strings) {
+  // your solution here
+  strings.sort((stringA,stringB) =>
+    stringA.length > stringB.length ? 1:-1);
+  return strings;
+}
+
+module.exports = {
+  sortWords,
+  sortNumbers,
+  largestFirst,
+  sortFlowersByZone,
+  sortByLength,
+};

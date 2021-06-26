@@ -1,0 +1,19 @@
+/*
+  Assume that `colors` in the function below will look something like the following:
+  [ 'Red', 'Yellow', 'White' ];
+*/
+
+// Require `addColorToPlant` here.
+function generateRosesByColor(colors) {
+  let result = [];
+  const yourModule = require("./plants.js")
+  for (let i = 0; i < colors.length; i++) {
+    let color = colors[i];
+    let rose = yourModule.addColorToPlant({ name: "Rose" }, color);
+    result.push(rose);
+  }
+
+  return result;
+ }
+ 
+ module.exports = generateRosesByColor;

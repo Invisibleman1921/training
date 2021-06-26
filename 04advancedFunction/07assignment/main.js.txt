@@ -1,0 +1,76 @@
+/*
+  Complete the functions below as described in the instructions.
+
+  The `parks` parameter refers to an array of objects with the following shape:
+  {
+    id: 1,
+    name: "Acadia",
+    areaInSquareKm: 198.6,
+    location: { state: "Maine" },
+  }
+
+  The `users` parameter refers to an object with the following shape:
+  {
+    "karah.branch3": {
+      visited: [1],
+      wishlist: [4, 6],
+    }
+  }
+*/
+
+function getParksByState(parks=[], state="") {
+  if (parks.length===0){
+    return parks=[];
+  }
+  let filteredParks=parks.filter((park)=>park.location.state===state);
+  return filteredParks;
+}
+
+function getWishlistParksForUser(parks=[],users,username) {
+  let returnArray=[];
+  let wishlist=users[username].wishlist;
+  if(!wishlist) return returnArray;
+  return parks.filter((park) => wishlist.includes(park.id))
+}
+
+function userHasVisitedAllParksInState(parks,users,state,username) {
+  let visited=users[username].visited; //[2,5,1]
+  let parksByState=getParksByState(parks,state); //gives array for all parks in a state, [2,6]
+
+  let check=parksByState.every( (park) => visited.includes(park.id));//
+  //parksByState is seeing if visited has every value. So parksByState.id===visited.
+  //park is simply a name we threw for the higher order function, park is referencing parksByState
+  //visited then checks to see if each element in its array is includes park.id (===parksByState.id).
+  //includes will iterate through the entirety of visited to see if the value in park.id is valid.
+  //If so, it'll pass a true to the higher function, and every will continue to iterate, now with park.id[1].
+  //Repeat until parksByState has been iterated through entirely. Assuming if the test continues to pass true.
+  //If includes throughs a false at any point, every will then through a false, and the whole thing will cease.
+  return check;
+}
+
+function userHasVisitedParkOnWishlist(users, username1, username2) {
+  let wishList = users[username2].wishlist;
+  let visited = users[username1].visited;
+  return visited.some(id => wishList.includes(id))
+}
+
+function getUsersForUserWishlist(users, username="") {
+  let wishList=users[username].wishList;
+  let visited=users[username].visited;
+  let wishlist = users[username].wishlist;
+  let result = [];
+  for (let user in users) {
+     if (users[user].visited.some(id => wishlist.includes(id))) {
+      result.push(user)
+    }
+  }
+  return result;
+}
+
+module.exports = {
+  getParksByState,
+  getWishlistParksForUser,
+  getUsersForUserWishlist,
+  userHasVisitedAllParksInState,
+  userHasVisitedParkOnWishlist,
+};

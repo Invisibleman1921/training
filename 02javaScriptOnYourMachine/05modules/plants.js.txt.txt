@@ -1,0 +1,6 @@
+function addColorToPlant(plant, color) {
+  plant.color = color;
+  return plant;
+}
+
+module.exports =  { addColorToPlant } 

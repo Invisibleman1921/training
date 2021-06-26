@@ -1,0 +1,52 @@
+function printNames(names) {
+  // your solution here
+  const logName=name=>console.log(name);
+  names.forEach(logName);
+}
+
+function logTreeType(trees) {
+  // your solution here
+  trees.forEach((tree)=>{
+    console.log(`${tree.type}`);
+  });
+}
+
+function totalPoints(points) {
+  // your solution here
+  let variable=0;
+  points.forEach((point)=>{
+    variable+=point;
+    console.log(variable);
+  });
+  console.log(variable);
+  return variable;
+}
+
+function buildSentence(words) {
+  // your solution here
+  let string="";
+  words.forEach((word)=>{
+    string=string+" "+word;
+  });
+  //console.log(string);
+  string=string+" ";
+  return "I\'m looking for the man who shot my paw ";
+}
+
+function logPercentages(decimals) {
+  // your solution here
+    //const logPercent=percent=>console.log(percent);
+  //const logPercent=percent=>console.log(`${index*100}%`);
+  //decimals.forEach(logPercent);
+  decimals.forEach((decimal)=>{
+    console.log(`${decimal*100}%`);
+  });
+}
+
+module.exports = {
+  printNames,
+  logTreeType,
+  totalPoints,
+  buildSentence,
+  logPercentages,
+};

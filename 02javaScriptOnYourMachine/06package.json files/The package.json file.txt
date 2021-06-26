@@ -1,0 +1,2 @@
+https://docs.npmjs.com/cli/v7/configuring-npm/package-json
+https://docs.npmjs.com/cli/v7/using-npm/scripts

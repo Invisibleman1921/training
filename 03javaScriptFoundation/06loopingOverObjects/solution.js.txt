@@ -1,0 +1,39 @@
+/*
+  Write each function according to the instructions.
+  
+  When a function's parameters reference `cart`, it references an object that looks like the one that follows.
+  {
+    "Gold Round Sunglasses": { quantity: 1, priceInCents: 1000 },
+    "Pink Bucket Hat": { quantity: 2, priceInCents: 1260 }
+  }
+*/
+
+function calculateCartTotal(cart) {
+  let total=0;
+  for(let key in cart){
+    total+=(cart[key].quantity*cart[key].priceInCents);
+  }
+  return total;
+}
+
+function printCartInventory(cart){
+  let result="";
+  /*for(let key in cart){
+    const objects=Object.keys(cart);
+    result+=`${cart[key].quantity}x${key}\n`;
+    //const objects=Object.keys(cart);
+    //console.log(`${cart[key].quantity}x${objects[key]}\n`);
+    }
+    */
+    for (let itemName in cart) {
+    // itemName is the product name
+    // cart[itemName] is the object for that product
+     result += `${cart[itemName].quantity}x${itemName}\n`;
+   }
+   return result;
+}
+
+module.exports = {
+  calculateCartTotal,
+  printCartInventory,
+};

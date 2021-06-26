@@ -1,0 +1,8 @@
+https://www.npmjs.com/
+https://www.npmjs.com/package/moment
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+https://momentjs.com/docs/
+https://docs.npmjs.com/cli/v7/configuring-npm/package-json
+https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json
+https://github.com/Thinkful-Ed/example-javascript-on-your-machine-installing-packages
+https://github.com/Thinkful-Ed/web-dev-quiz-solutions/blob/master/library/zid-pf-javascript-on-your-machine-05-installing-packages/quizkey.md
